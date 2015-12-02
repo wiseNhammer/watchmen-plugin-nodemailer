@@ -10,7 +10,7 @@
   "author": {
     "name": "Emily Horsman",
     "email": "me@emilyhorsman.com",
-    "url:" "http://emilyhorsman.com"
+    "url": "http://emilyhorsman.com"
   },
   "dependencies": {
     "dotenv": "^1.2.0",
