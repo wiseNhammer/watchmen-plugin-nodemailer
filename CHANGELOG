@@ -1,0 +1,4 @@
+0.1.0
+=====
+
+	* Body and subject Handlebars template support with nodemailer
