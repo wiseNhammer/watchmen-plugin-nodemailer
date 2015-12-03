@@ -1,4 +1,9 @@
+0.2.0
+=====
+
+  * Namespace environment variables with WATCHMEN_ (fixes issue #1)
+
 0.1.0
 =====
 
-	* Body and subject Handlebars template support with nodemailer
+  * Body and subject Handlebars template support with nodemailer

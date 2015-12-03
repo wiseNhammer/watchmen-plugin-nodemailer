@@ -47,8 +47,8 @@ function get_templates(base_directory) {
  * Check if using default template location or one defined in environment
  */
 var p = path.join(__dirname, 'templates');
-if ('MAILER_TEMPLATE_DIRECTORY' in process.env) {
-  p = process.env.MAILER_TEMPLATE_DIRECTORY;
+if ('WATCHMEN_MAILER_TEMPLATE_DIRECTORY' in process.env) {
+  p = process.env.WATCHMEN_MAILER_TEMPLATE_DIRECTORY;
   console.log('Loading templates from ' + p + ' instead of default templates.');
 }
 var templates = get_templates(p);
@@ -57,16 +57,16 @@ var templates = get_templates(p);
  * Get us a mail transporter!
  */
 var mailCredentials = {
-  port: process.env.AUTH_NODEMAILER_PORT,
-  host: process.env.AUTH_NODEMAILER_HOST,
+  port: process.env.WATCHMEN_AUTH_NODEMAILER_PORT,
+  host: process.env.WATCHMEN_AUTH_NODEMAILER_HOST,
   auth: {
-    user: process.env.AUTH_NODEMAILER_USER,
-    pass: process.env.AUTH_NODEMAILER_PASS
+    user: process.env.WATCHMEN_AUTH_NODEMAILER_USER,
+    pass: process.env.WATCHMEN_AUTH_NODEMAILER_PASS
   }
 };
 
 var mailDefaults = {
-  from: process.env.AUTH_NODEMAILER_USER
+  from: process.env.WATCHMEN_AUTH_NODEMAILER_USER
 };
 
 var transporter = nodemailer.createTransport(mailCredentials, mailDefaults);

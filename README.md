@@ -42,10 +42,10 @@ The following sample configures SMTP credentials and specifies a custom template
 directory—overriding the default included templates as explained above.
 
 ```
-AUTH_NODEMAILER_USER=alerts@watchmen.bar
-AUTH_NODEMAILER_PASS=password
-AUTH_NODEMAILER_PORT=587
-AUTH_NODEMAILER_HOST=smtp.mailhost.bar
+WATCHMEN_AUTH_NODEMAILER_USER=alerts@watchmen.bar
+WATCHMEN_AUTH_NODEMAILER_PASS=password
+WATCHMEN_AUTH_NODEMAILER_PORT=587
+WATCHMEN_AUTH_NODEMAILER_HOST=smtp.mailhost.bar
 
-MAILER_TEMPLATE_DIRECTORY=/home/watchmen/watchmen/templates
+WATCHMEN_MAILER_TEMPLATE_DIRECTORY=/home/watchmen/watchmen/templates
 ```
