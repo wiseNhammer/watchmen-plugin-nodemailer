@@ -1,4 +1,4 @@
-/*jslint node: true */
+﻿/*jslint node: true */
 'use strict';
 
 var glob       = require('glob');
@@ -32,12 +32,13 @@ function get_templates(base_directory) {
     var parts      = path.parse(template_path);
     var contents   = fs.readFileSync(template_path);
     var parent_dir = parts.dir.split(path.sep).pop();
+    var template_type = path.parse(parent_dir).name;
 
-    if (!(parent_dir in templates)) {
-      templates[parent_dir] = {};
+    if (!(template_type in templates)) {
+      templates[template_type] = {};
     }
-    templates[parent_dir][parts.name] = handlebars.compile(contents.toString());
-    console.log('Found ' + parent_dir + ' template for ' + parts.name);
+    templates[template_type][parts.name] = handlebars.compile(contents.toString());
+    console.log('Found ' + template_type + ' template for ' + parts.name);
   });
 
   return templates;
