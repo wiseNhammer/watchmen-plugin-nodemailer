@@ -43,7 +43,7 @@ function get_templates(base_directory) {
   return templates;
 }
 
-var lang = process.env.WATCHMEN_AUTH_NODEMAILER_HOST || 'en';
+var lang = process.env.WATCHMEN_AUTH_NODEMAILER_LANG || 'en';
 /*
  * Check if using default template location or one defined in environment
  */
