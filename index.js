@@ -59,7 +59,7 @@ var templates = get_templates(p);
  */
 var mailCredentials = {
   port: process.env.WATCHMEN_AUTH_NODEMAILER_PORT,
-  host: process.env.WATCHMEN_AUTH_NODEMAILER_HOST,
+  host: process.env.WATCHMEN_AUTH_NODEMAILER_HOST
 };
 
 if (process.env.WATCHMENT_AUTH_NODEMAILER_NO_AUTH != 'true') {
