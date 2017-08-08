@@ -43,10 +43,11 @@ function get_templates(base_directory) {
   return templates;
 }
 
+var lang = process.env.WATCHMEN_AUTH_NODEMAILER_LANG || 'en';
 /*
  * Check if using default template location or one defined in environment
  */
-var p = path.join(__dirname, 'templates');
+var p = path.join(__dirname, 'templates/' + lang);
 if ('WATCHMEN_MAILER_TEMPLATE_DIRECTORY' in process.env) {
   p = process.env.WATCHMEN_MAILER_TEMPLATE_DIRECTORY;
   console.log('Loading templates from ' + p + ' instead of default templates.');
@@ -58,12 +59,15 @@ var templates = get_templates(p);
  */
 var mailCredentials = {
   port: process.env.WATCHMEN_AUTH_NODEMAILER_PORT,
-  host: process.env.WATCHMEN_AUTH_NODEMAILER_HOST,
-  auth: {
-    user: process.env.WATCHMEN_AUTH_NODEMAILER_USER,
-    pass: process.env.WATCHMEN_AUTH_NODEMAILER_PASS
-  }
+  host: process.env.WATCHMEN_AUTH_NODEMAILER_HOST
 };
+
+if (process.env.WATCHMENT_AUTH_NODEMAILER_NO_AUTH != 'true') {
+    mailCredentials.auth =  {
+        user: process.env.WATCHMEN_AUTH_NODEMAILER_USER,
+        pass: process.env.WATCHMEN_AUTH_NODEMAILER_PASS
+    };
+}
 
 var mailDefaults = {
   from: process.env.WATCHMEN_AUTH_NODEMAILER_USER
